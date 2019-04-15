@@ -45,7 +45,7 @@ class Main extends React.Component{
        let seconds = now.getSeconds();
 
        this.setState({time: seconds});
-       var t = setTimeout(this.startTime, 500);
+       setTimeout(this.startTime, 500);
     }
 
     render(){
@@ -54,7 +54,8 @@ class Main extends React.Component{
                 <MusicPlayer parentState={this.state.time} />
                 <BrowserRouter>
                     <Switch>
-                        <Route exact path = "/" component={PageOne} />
+                        {/*//change the title of the page*/}
+                        <Route exact path = "/" render={ () => <PageOne  title="My Home Page"/>} />
                         <Route exact path = "/pg2" component={PageTwo} />
                         <Route exact path = "/pg3" component={PageThree} />
                     </Switch>
